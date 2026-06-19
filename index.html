@@ -99,7 +99,7 @@
         <p class="section-label">Start here</p>
         <h2>Clear on the priorities. Aligned on the plan. Confident in the next move.</h2>
       </div>
-      <a class="contact-link" href="mailto:hello@thegoodchild.co.uk">hello@thegoodchild.co.uk</a>
+      <a class="contact-link" id="contactEmail" data-user="hello" data-domain="thegoodchild.co.uk" href="#contact">hello [at] thegoodchild.co.uk</a>
     </section>
   </main>
 
@@ -110,6 +110,12 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const emailLink = document.getElementById('contactEmail');
+    if (emailLink) {
+      const address = `${emailLink.dataset.user}@${emailLink.dataset.domain}`;
+      emailLink.textContent = address;
+      emailLink.href = `mailto:${address}`;
+    }
   </script>
 </body>
 </html>
